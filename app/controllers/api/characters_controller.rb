@@ -6,8 +6,11 @@ module Api
     end
 
     def show
-      character = Character.find(params[:id]);
-      render json: { status: 'SUCCESS', message: 'loaded character', data: character }, status: :ok;
+      if character
+        render json: { status: 'SUCCESS', message: 'loaded character', data: character }, status: :ok;
+      else 
+        render json: character.errors
+      end
     end
 
     def create
@@ -20,13 +23,11 @@ module Api
     end
 
     def destroy
-      character = Character.find(params[:id]);
-      character.destroy
+      character&.destroy
       render json: { status: 'SUCCESS', message: 'deleted character', data: character }, status: :ok;
     end
 
     def update 
-      character = Character.find(params[:id]);
       if character.update_attributes(character_params)
         render json: { status: 'SUCCESS', message: 'updated character', data: character }, status: :ok;
       else
@@ -38,6 +39,10 @@ module Api
 
       def character_params
         params.permit(:name, :xpos, :ypos)
+      end
+
+      def character 
+        @character ||= Character.find(params[:id])
       end
   end
 end

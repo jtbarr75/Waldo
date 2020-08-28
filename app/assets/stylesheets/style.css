@@ -17,8 +17,23 @@ img {
   display: block;
 }
 
-.select-box {
+.select {
   position: absolute;
+  display: flex;
+}
+
+.select ul {
+  background-color: black;
+  color: white;
+  font-size: 14pt;
+}
+
+.select li:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+
+.select-box {
   width: 40px;
   height: 60px;
   border: 5px solid black;
