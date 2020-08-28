@@ -4,16 +4,17 @@
 
 main {
   width: 100%;
-  display: flex;
-  justify-content: center;
 }
 
 .image-wrapper {
   position: relative;
+  margin: 0 auto;
+  max-width: 1800px;
 }
 
 img {
   max-width: 1800px;
+  display: block;
 }
 
 .select-box {
