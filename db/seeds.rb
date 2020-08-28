@@ -6,4 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Character.create({ name: 'Waldo', xpos: 420, ypos: 69 })
+Character.create({ name: 'Waldo', xpos: 760, ypos: 200 })
+Character.create({ name: 'Wizard', xpos: 1242, ypos: 54 })
+Character.create({ name: 'Wenda', xpos: 540, ypos: 830 })
+Character.create({ name: 'Odlaw', xpos: 358, ypos: 820 })
+Character.create({ name: 'Woof', xpos: 1116, ypos: 571 })
