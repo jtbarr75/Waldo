@@ -8,6 +8,17 @@ main {
   justify-content: center;
 }
 
+.image-wrapper {
+  position: relative;
+}
+
 img {
-  max-width: calc(100vw - 100px);
+  max-width: 1800px;
+}
+
+.select-box {
+  position: absolute;
+  width: 40px;
+  height: 60px;
+  border: 5px solid black;
 }
