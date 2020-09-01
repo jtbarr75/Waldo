@@ -18,7 +18,7 @@
     let x = e.clientX + document.body.scrollLeft - rect.left;
     let y = e.clientY + document.body.scrollTop - rect.top;
 
-    createSelectBox(x, y);
+    createSelector(x, y);
 
     let mousePos = document.getElementById("mousePos");
     mousePos.innerText += `, x: ${x} y: ${y}`;
@@ -26,19 +26,21 @@
 
   function checkLocation(data){
     console.log(data)
-    const select = document.querySelector(".select");
-    if (Math.abs(data.xpos - select.dataset.xpos) < 10 &&
-        Math.abs(data.ypos - select.dataset.ypos) < 15) {
+    const { xpos, ypos } = document.getElementById("select").dataset;
+    if (Math.abs(data.xpos - xpos) < 10 &&
+        Math.abs(data.ypos - ypos) < 15) {
       console.log(`You found ${data.name}`);
+      const container = selectContainer(data.xpos, data.ypos, "blue");
+      document.querySelector(".image-wrapper").appendChild(container);
     }
     else {
       console.log(`That's not ${data.name}`);
     }
-    clearSelectBox();
+    clearSelector();
   }
 
-  function clearSelectBox() {
-    const select = document.querySelector(".select");
+  function clearSelector() {
+    const select = document.getElementById("select");
     select.parentElement.removeChild(select);
   }
 
@@ -66,23 +68,27 @@
     return char;
   }
 
-  function selectContainer(x, y) {
+  function selectContainer(x, y, color = "black") {
+    console.log(x, y, color)
     let container = document.createElement("div");
-    container.classList.add("select")
+    container.classList.add("select-container")
     container.style.top = `${y- 30}px`;
     container.style.left = `${x - 20}px`;
     container.dataset.xpos = x;
     container.dataset.ypos = y;
+    container.appendChild(createBox(color));
     return container;
   }
 
-  function createSelectBox(x, y){
-    let container = selectContainer(x, y);
-
+  function createBox(color) {
     let box = document.createElement("div");
-    box.classList.add("select-box");
-    
-    container.appendChild(box);
+    box.classList.add("select-box", color);
+    return box
+  }
+
+  function createSelector(x, y){
+    let container = selectContainer(x, y);
+    container.id = "select";
 
     let selectChar = document.createElement("ul");
     let waldo = characterSelector("Waldo", 1);
