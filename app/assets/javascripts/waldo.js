@@ -99,8 +99,29 @@
 
     document.querySelector(".image-wrapper").appendChild(container);
   }
-
-  function submitScore() {
-    
-  }
 })();
+
+function submitScore() {
+  event.preventDefault();
+  const time = 60;
+  const name = document.getElementById("name").value;
+  const body = { name: name, time: time }
+  const url = "/api/scores";
+  const token = document.querySelector('meta[name="csrf-token"]').content;
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "X-CSRF-Token": token,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(body)
+  })
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error("Network response not ok.")
+    })
+    .then(console.log("Score created"))
+    .catch(error => {console.log(error.message, "Something bad happened")})
+}
