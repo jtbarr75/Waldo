@@ -32,6 +32,10 @@ img {
   font-size: 14pt;
 }
 
+.select-container li {
+  padding: 5px;
+}
+
 .select-container li:hover {
   background-color: grey;
   cursor: pointer;
