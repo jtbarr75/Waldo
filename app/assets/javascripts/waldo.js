@@ -1,11 +1,14 @@
 ( function() {
+  let foundChars = 0;
+  let win = false;
+
   document.onclick = selectBox;
 
   function selectBox(e) {
     if (e.target.tagName !== "LI") {
       clearSelector();
     }
-    if (e.target.id !== "image") {
+    if (e.target.id !== "image" || win) {
       return;
     }
     let rect = e.target.getBoundingClientRect();
@@ -14,15 +17,25 @@
 
     createSelector(x, y);
   }
+  
+  function checkWin() {
+    foundChars += 1;
+      if (foundChars === 5) {
+        timer.stopTimer();
+        win = true;
+        const time = document.getElementById("timer").dataset.time;
+        document.getElementById("win-message").innerText = `You won in ${timer.formatTime(time)}`
+        document.getElementById("win-popup").style.display = "block";
+      }
+  }
 
   function checkLocation(data){
     const { xpos, ypos } = document.getElementById("select").dataset;
-    if (Math.abs(data.xpos - xpos) < 20 &&
-        Math.abs(data.ypos - ypos) < 20) {
-      console.log(`You found ${data.name}`);
+    if (Math.abs(data.xpos - xpos) < 20 && Math.abs(data.ypos - ypos) < 20) {
       const container = selectContainer(data.xpos, data.ypos, "blue");
       document.querySelector(".image-wrapper").appendChild(container);
       document.getElementById(data.name).classList.add("found");
+      checkWin();
     }
     else {
       console.log(`That's not ${data.name}`);

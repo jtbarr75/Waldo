@@ -98,7 +98,7 @@ header h1 {
 
 /* Form */
 
-.win-popup {
+#win-popup {
   display: none;
   position: fixed;
   top: 200px;
