@@ -1,6 +1,40 @@
-<h1>Find Waldo, Wizard, Wenda, Odlaw, and Woof</h1>
+<header>
+  <h1>Click on the following characters in the image below!</h1>
+  <div class="characters">
+    <div class="character-wrapper">
+      <%= image_tag "waldo", id: "Waldo", class: "character"%>
+      <caption>Waldo</caption>
+    </div>
+    <div class="character-wrapper">
+      <%= image_tag "wenda", id: "Wenda", class: "character"%>
+      <caption>Wenda</caption>
+    </div>
+    <div class="character-wrapper">
+      <%= image_tag "wizard", id: "Wizard", class: "character"%>
+      <caption>Wizard</caption>
+    </div>
+    <div class="character-wrapper">
+      <%= image_tag "odlaw", id: "Odlaw", class: "character"%>
+      <caption>Odlaw</caption>
+    </div>
+    <div class="character-wrapper">
+      <%= image_tag "woof", id: "Woof", class: "character"%>
+      <caption>Woof</caption>
+    </div>
+  </div>
+</header>
 <main>
   <div class="image-wrapper">
     <%= image_tag "waldo4", id: "image"%>
   </div>
 </main>
+<div class="win-popup">
+  <form>
+    <h1>You found them!</h1>
+
+    <label for="name">Enter your name</label>
+    <input type="text" name="name">
+
+    <button type="submit" class="btn" onclick="submitScore()">Submit High Score</button>
+  </form>
+</div>
