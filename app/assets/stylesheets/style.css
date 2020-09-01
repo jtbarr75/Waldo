@@ -56,6 +56,7 @@ header {
   max-width: 1800px;
   margin: 0 auto;
   padding-top: 20px;
+  font-family: 'Permanent Marker';
 }
 
 header h1 {
@@ -109,6 +110,7 @@ form {
   flex-direction: column;
   align-content: center;
   text-align: center;
+  font-family: 'Permanent Marker';
 }
 
 h1 {
@@ -118,7 +120,7 @@ h1 {
 form input {
   width: 100%;
   padding: 0 15px;
-  margin: 5px 0 40px;
+  margin: 15px 0 40px;
 }
 
 form button {
