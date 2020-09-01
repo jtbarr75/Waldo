@@ -1,16 +1,10 @@
 ( function() {
-  // document.onmousemove = updateMouseLocation;
   document.onclick = selectBox;
 
-  function updateMouseLocation(e) {
-    let x = e.clientX;
-    let y = e.clientY;
-
-    let mousePos =document.getElementById("mousePos");
-    mousePos.innerText = `${x} ${y}`;
-  }
-
   function selectBox(e) {
+    if (e.target.tagName !== "LI") {
+      clearSelector();
+    }
     if (e.target.id !== "image") {
       return;
     }
@@ -19,13 +13,9 @@
     let y = e.clientY + document.body.scrollTop - rect.top;
 
     createSelector(x, y);
-
-    let mousePos = document.getElementById("mousePos");
-    mousePos.innerText += `, x: ${x} y: ${y}`;
   }
 
   function checkLocation(data){
-    console.log(data)
     const { xpos, ypos } = document.getElementById("select").dataset;
     if (Math.abs(data.xpos - xpos) < 10 &&
         Math.abs(data.ypos - ypos) < 15) {
@@ -41,7 +31,9 @@
 
   function clearSelector() {
     const select = document.getElementById("select");
-    select.parentElement.removeChild(select);
+    if (select){
+      select.parentElement.removeChild(select);
+    }
   }
 
   function validate(e) {
@@ -69,7 +61,6 @@
   }
 
   function selectContainer(x, y, color = "black") {
-    console.log(x, y, color)
     let container = document.createElement("div");
     container.classList.add("select-container")
     container.style.top = `${y- 30}px`;
