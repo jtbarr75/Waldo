@@ -31,7 +31,7 @@
 
   function checkLocation(data){
     const { xpos, ypos } = document.getElementById("select").dataset;
-    if (Math.abs(data.xpos - xpos) < 20 && Math.abs(data.ypos - ypos) < 20) {
+    if (Math.abs(data.xpos - xpos) < 20 && Math.abs(data.ypos - ypos) < 25) {
       const container = selectContainer(data.xpos, data.ypos, "blue");
       document.querySelector(".image-wrapper").appendChild(container);
       document.getElementById(data.name).classList.add("found");
