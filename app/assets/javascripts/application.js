@@ -14,3 +14,5 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= stub 'timer'
+//= stub 'waldo'
