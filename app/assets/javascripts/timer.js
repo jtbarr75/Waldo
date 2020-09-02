@@ -31,7 +31,7 @@ const timer = ( function() {
 })();
 
 function submitScore() {
-  event.preventDefault();
+  // event.preventDefault();
   const time = document.getElementById("timer").dataset.time;
   const name = document.getElementById("name").value;
   const body = { name: name, time: time }

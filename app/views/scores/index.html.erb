@@ -1,2 +1,13 @@
-<h1>High Scores</h1>
-<%= render @scores %>
+<div class="content">
+  <header class="scores-header">
+    <h1 class="scores-title">High Scores</h1>
+    <%= link_to 'Play Again', href='/', class: "link" %>
+  </header>
+  <table id='scores'>
+    <tr>
+      <th>Name</td>
+      <th>Time</td>
+    </tr>
+    <%= render @scores %>
+  </table>
+</div>
