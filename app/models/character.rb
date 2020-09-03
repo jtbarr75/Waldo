@@ -7,6 +7,6 @@ class Character < ApplicationRecord
   has_many :puzzles, :through => :locations
 
   def location_in_puzzle(id)
-    return self.locations.where(puzzle_id = id)
+    return self.locations.where(puzzle_id: id)[0]
   end
 end

@@ -7,7 +7,11 @@ module Api
 
     def show
       if character
-        render json: { status: 'SUCCESS', message: 'loaded character', data: character }, status: :ok;
+        body = {
+          name: character.name,
+          location: character.location_in_puzzle(params[:puzzle_id])
+        }
+        render json: { status: 'SUCCESS', message: 'loaded character', data: body }, status: :ok;
       else 
         render json: character.errors
       end

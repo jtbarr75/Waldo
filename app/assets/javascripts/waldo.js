@@ -30,9 +30,10 @@
   }
 
   function checkLocation(data){
+    console.log(data)
     const { xpos, ypos } = document.getElementById("select").dataset;
-    if (Math.abs(data.xpos - xpos) < 20 && Math.abs(data.ypos - ypos) < 25) {
-      const container = selectContainer(data.xpos, data.ypos, "blue");
+    if (Math.abs(data.location.xpos - xpos) < 20 && Math.abs(data.location.ypos - ypos) < 25) {
+      const container = selectContainer(data.location.xpos, data.location.ypos, "blue");
       document.querySelector(".image-wrapper").appendChild(container);
       document.getElementById(data.name).classList.add("found");
       checkWin();
@@ -52,7 +53,7 @@
 
   function validate(e) {
     const { id } = e.target.dataset
-    const url = `/api/characters/${id}`;
+    const url = `/api/${window.location.pathname}/characters/${id}`;
     fetch(url)
       .then(response => {
         if (response.ok) {
