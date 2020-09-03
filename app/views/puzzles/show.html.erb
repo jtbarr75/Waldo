@@ -1,5 +1,5 @@
 <header>
-  <h1>Click on the following characters in the image below!</h1>
+  <h2>Click on the following characters in the image below!</h2>
   <div class="characters">
     <% @puzzle.characters.each do |character| %>
       <div class="character-wrapper">
@@ -12,7 +12,10 @@
 </header>
 <main>
   <div class="image-wrapper">
-    <%= image_tag @puzzle.image.name, id: "image"%>
+    <%= image_tag @puzzle.image.name, class: "image" %>
+  </div>
+  <div class="nav">
+    <%= link_to 'Back to home', '/'%>
   </div>
 </main>
 <div id="win-popup">
