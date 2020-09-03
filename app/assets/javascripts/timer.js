@@ -31,11 +31,11 @@ const timer = ( function() {
 })();
 
 function submitScore() {
-  // event.preventDefault();
+  event.preventDefault();
   const time = document.getElementById("timer").dataset.time;
   const name = document.getElementById("name").value;
   const body = { name: name, time: time }
-  const url = "/scores";
+  const url = `${window.location.pathname}/scores`;
   const token = document.querySelector('meta[name="csrf-token"]').content;
   fetch(url, {
     method: "POST",
@@ -51,6 +51,9 @@ function submitScore() {
       }
       throw new Error("Network response not ok.")
     })
-    .then(console.log("Score created"))
+    .then(() => {
+      console.log("Score created");
+      window.location.href = `${window.location.href}/scores`;
+    })
     .catch(error => {console.log(error.message, "Something bad happened")})
 }

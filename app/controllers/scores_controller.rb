@@ -1,7 +1,7 @@
 
 class ScoresController < ApplicationController
   def index
-    @scores = Score.order('time ASC');
+    @scores = Score.where(puzzle_id: params[:puzzle_id]).order('time ASC');
   end
 
   def create
@@ -16,7 +16,7 @@ class ScoresController < ApplicationController
   private 
 
   def score_params
-    params.permit(:name, :time)
+    params.permit(:name, :time, :puzzle_id)
   end
 end
 

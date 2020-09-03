@@ -5,7 +5,8 @@ Rails.application.routes.draw do
       resources :characters, only: [:show]
     end
   end
-  resources :scores, only: [:index, :create]
-  resources :puzzles, only: [:show]
+  resources :puzzles, only: [:show] do 
+    resources :scores, only: [:index, :create]
+  end
   root 'puzzles#index'
 end

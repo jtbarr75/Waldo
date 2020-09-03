@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_192955) do
+ActiveRecord::Schema.define(version: 2020_09_03_211147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 2020_09_03_192955) do
     t.integer "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "puzzle_id"
+    t.index ["puzzle_id"], name: "index_scores_on_puzzle_id"
   end
 
   add_foreign_key "locations", "characters"
