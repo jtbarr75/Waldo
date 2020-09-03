@@ -47,9 +47,6 @@
       document.getElementById(data.name).classList.add("found");
       checkWin();
     }
-    else {
-      console.log(`That's not ${data.name}`);
-    }
     clearSelector();
   }
 
@@ -66,7 +63,6 @@
     fetch(url)
       .then(response => {
         if (response.ok) {
-          console.log(response)
           return response.json();
         }
         throw new Error("Network response not ok");
