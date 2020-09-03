@@ -30,7 +30,6 @@
   }
 
   function checkLocation(data){
-    console.log(data)
     const { xpos, ypos } = document.getElementById("select").dataset;
     if (Math.abs(data.location.xpos - xpos) < 20 && Math.abs(data.location.ypos - ypos) < 25) {
       const container = selectContainer(data.location.xpos, data.location.ypos, "blue");
