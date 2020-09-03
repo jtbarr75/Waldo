@@ -3,4 +3,8 @@ class Puzzle < ApplicationRecord
   has_many :scores
   has_many :locations
   has_many :characters, :through => :locations
+
+  def num_characters
+    return self.characters.length
+  end
 end

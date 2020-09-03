@@ -5,5 +5,16 @@ class PuzzlesController < ApplicationController
 
   def show
     @puzzle = Puzzle.includes(:characters, :locations).find(params[:id])
+    respond_to do |format| 
+      format.html
+      format.json do
+        body = {
+          id: @puzzle.id,
+          name: @puzzle.name,
+          numCharacters: @puzzle.num_characters
+        }
+        render json: body
+      end
+    end
   end
 end

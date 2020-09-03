@@ -1,6 +1,16 @@
 ( function() {
   let foundChars = 0;
   let win = false;
+  let puzzle;
+  fetch(`${window.location.pathname}.json`)
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error("Network response not ok");
+      })
+      .then((data) => { puzzle = data });
+
 
   document.onclick = selectBox;
 
@@ -20,7 +30,7 @@
   
   function checkWin() {
     foundChars += 1;
-      if (foundChars === 5) {
+      if (foundChars === puzzle.numCharacters) {
         timer.stopTimer();
         win = true;
         const time = document.getElementById("timer").dataset.time;
@@ -56,6 +66,7 @@
     fetch(url)
       .then(response => {
         if (response.ok) {
+          console.log(response)
           return response.json();
         }
         throw new Error("Network response not ok");
