@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
 waldo = Character.create({ name: 'Waldo', xpos: 760, ypos: 200 })
 wizard = Character.create({ name: 'Wizard', xpos: 1242, ypos: 54 })
@@ -22,3 +15,17 @@ puzzle1 = Puzzle.create({ name: "beach" })
 puzzle1.create_image({ name: 'puzzle1'})
 
 Location.create!({ character_id: waldo.id, puzzle_id: puzzle1.id, xpos: 200, ypos: 200})
+
+puzzle2 = Puzzle.create({ name: "ocean" })
+puzzle2.create_image({ name: 'puzzle2'})
+
+Location.create!({ character_id: waldo.id, puzzle_id: puzzle2.id, xpos: 200, ypos: 200})
+
+puzzle3 = Puzzle.create({ name: "store" })
+puzzle3.create_image({ name: 'puzzle3'})
+
+Location.create!({ character_id: waldo.id, puzzle_id: puzzle3.id, xpos: 760, ypos: 200 })
+Location.create!({ character_id: wizard.id, puzzle_id: puzzle3.id, xpos: 1242, ypos: 54 })
+Location.create!({ character_id: wenda.id, puzzle_id: puzzle3.id, xpos: 540, ypos: 830 })
+Location.create!({ character_id: odlaw.id, puzzle_id: puzzle3.id, xpos: 358, ypos: 820 })
+Location.create!({ character_id: woof.id, puzzle_id: puzzle3.id, xpos: 1116, ypos: 571 })
