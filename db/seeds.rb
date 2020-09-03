@@ -11,14 +11,14 @@ wenda.create_image({ name: 'wenda.webp'})
 odlaw.create_image({ name: 'odlaw.webp'})
 woof.create_image({ name: 'woof.webp'})
 
-puzzle1 = Puzzle.create({ name: "beach" })
+puzzle1 = Puzzle.create({ name: "beach", difficulty: "easy" })
 puzzle1.create_image({ name: 'puzzle1'})
 
 Location.create!({ character_id: waldo.id, puzzle_id: puzzle1.id, xpos: 516, ypos: 358 })
 Location.create!({ character_id: wizard.id, puzzle_id: puzzle1.id, xpos: 610, ypos: 358 })
 Location.create!({ character_id: odlaw.id, puzzle_id: puzzle1.id, xpos: 239, ypos: 360 })
 
-puzzle2 = Puzzle.create({ name: "street" })
+puzzle2 = Puzzle.create({ name: "street", difficulty: "medium" })
 puzzle2.create_image({ name: 'puzzle2'})
 
 Location.create!({ character_id: waldo.id, puzzle_id: puzzle2.id, xpos: 776, ypos: 840 })
@@ -27,7 +27,7 @@ Location.create!({ character_id: wenda.id, puzzle_id: puzzle2.id, xpos: 788, ypo
 Location.create!({ character_id: odlaw.id, puzzle_id: puzzle2.id, xpos: 1064, ypos: 1067 })
 Location.create!({ character_id: woof.id, puzzle_id: puzzle2.id, xpos: 1034, ypos: 354 })
 
-puzzle3 = Puzzle.create({ name: "store" })
+puzzle3 = Puzzle.create({ name: "store", difficulty: "hard" })
 puzzle3.create_image({ name: 'puzzle3'})
 
 Location.create!({ character_id: waldo.id, puzzle_id: puzzle3.id, xpos: 760, ypos: 200 })

@@ -1,3 +1,47 @@
 // Place all the styles related to the puzzles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.puzzles-index {
+  font-family: 'Permanent Marker', "Trebuchet MS", Arial, Helvetica, sans-serif;
+  a {
+    text-decoration: none;
+    color: black;
+    :hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.image-small {
+  max-width: 200px;
+}
+
+.puzzles-wrapper {
+  margin: 0 auto;
+  width: 400px;
+}
+
+.puzzles-header {
+  padding: 30px;
+  h1 {
+    text-align: center;
+  }
+}
+
+.puzzle {
+  display: flex;
+  border: 5px red solid;
+  border-radius: 5px;
+  margin: 10px 0;
+  justify-content: space-between;
+  h2 {
+    text-align: center;
+  }
+  .difficulty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px
+  }
+}

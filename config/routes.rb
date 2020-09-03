@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   end
   resources :scores, only: [:index, :create]
   resources :puzzles, only: [:show]
-  root 'pages#show'
+  root 'puzzles#index'
 end

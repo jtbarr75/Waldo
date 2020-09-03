@@ -1,0 +1,14 @@
+<div class="puzzles-index">
+  <header class="puzzles-header">
+    <h1>Where's Waldo?</h1>
+  </header>
+  <main>
+    <div class="puzzles-wrapper">
+      <ul class="puzzles">
+        <% @puzzles.each do |puzzle| %>
+          <%= render puzzle %>
+        <% end %>
+      </ul>
+    </div>
+  </main>
+</div>
