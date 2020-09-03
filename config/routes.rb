@@ -4,5 +4,6 @@ Rails.application.routes.draw do
     resources :characters
   end
   resources :scores, only: [:index, :create]
+  resources :puzzles, only: [:show]
   root 'pages#show'
 end

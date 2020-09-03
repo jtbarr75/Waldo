@@ -1,0 +1,29 @@
+<header>
+  <h1>Click on the following characters in the image below!</h1>
+  <div class="characters">
+    <% @puzzle.characters.each do |character| %>
+      <div class="character-wrapper">
+        <%= image_tag character.name, id: character.name, class: "character"%>
+        <caption><%= character.name %></caption>
+      </div>
+    <% end %>
+  </div>
+  <h1 id="timer">0:00</h1>
+</header>
+<main>
+  <div class="image-wrapper">
+    <%= image_tag @puzzle.image.name, id: "image"%>
+  </div>
+</main>
+<div id="win-popup">
+  <form action="/scores">
+    <h1 id="win-message">You found them!</h1>
+
+    <label for="name">Enter your name</label>
+    <input type="text" name="name" id="name">
+
+    <button type="submit" class="btn" onclick="submitScore()">Submit High Score</button>
+  </form>
+</div>
+<%= javascript_include_tag 'timer'%>
+<%= javascript_include_tag 'waldo'%>

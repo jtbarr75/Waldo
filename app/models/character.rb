@@ -3,6 +3,10 @@ class Character < ApplicationRecord
   validates :xpos, presence: true
   validates :ypos, presence: true
   has_one :image, :as => :imageable
-  has_many :puzzles, :through => :locations
   has_many :locations
+  has_many :puzzles, :through => :locations
+
+  def location_in_puzzle(id)
+    return self.locations.where(puzzle_id = id)
+  end
 end

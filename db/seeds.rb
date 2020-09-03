@@ -17,3 +17,8 @@ wizard.create_image({ name: 'wizard.webp'})
 wenda.create_image({ name: 'wenda.webp'})
 odlaw.create_image({ name: 'odlaw.webp'})
 woof.create_image({ name: 'woof.webp'})
+
+puzzle1 = Puzzle.create({ name: "beach" })
+puzzle1.create_image({ name: 'puzzle1'})
+
+Location.create!({ character_id: waldo.id, puzzle_id: puzzle1.id, xpos: 200, ypos: 200})
