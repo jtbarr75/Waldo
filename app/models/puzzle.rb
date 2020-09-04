@@ -7,4 +7,8 @@ class Puzzle < ApplicationRecord
   def num_characters
     return self.characters.length
   end
+
+  def small_image_name
+    return "small-#{self.image.name}"
+  end
 end
