@@ -15,7 +15,7 @@
     <%= image_tag @puzzle.image.name, id: "image" %>
   </div>
   <div class="nav">
-    <%= link_to 'Back to home', '/'%>
+    <%= link_to 'Back to home', root_path %>
     <%= link_to 'View Scores', puzzle_scores_path(@puzzle)%>
   </div>
 </main>
@@ -23,10 +23,10 @@
   <form>
     <h1 id="win-message">You found them!</h1>
 
-    <label for="name">Enter your name</label>
-    <input type="text" name="name" id="name">
+    <input type="text" name="name" id="name" placeholder="Enter your name">
 
     <button type="submit" class="btn" onclick="submitScore()">Submit High Score</button>
+    <%= link_to 'Back to Home', root_path %>
   </form>
 </div>
 <%= javascript_include_tag 'timer'%>
