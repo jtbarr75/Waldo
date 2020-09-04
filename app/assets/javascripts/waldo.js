@@ -61,7 +61,7 @@
 
   // Marks the character in data as found in the image and top bar
   function markAsFound(data) {
-    const container = selectContainer(data.location.xpos, data.location.ypos, "blue");
+    const container = selectContainer(data.location.xpos, data.location.ypos, "green");
     document.querySelector(".image-wrapper").appendChild(container);
     document.getElementById(data.name).classList.add("found");
     checkWin();
