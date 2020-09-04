@@ -3,7 +3,7 @@
   <div class="characters">
     <% @puzzle.characters.each do |character| %>
       <div class="character-wrapper">
-        <%= image_tag character.name, id: character.name, class: "character"%>
+        <%= image_tag character.image.name, id: character.name, class: "character"%>
         <caption><%= character.name %></caption>
       </div>
     <% end %>
