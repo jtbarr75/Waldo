@@ -2,6 +2,11 @@
   margin: 0 auto;
   width: 800px;
 }
+@media (max-width: 800px) {
+  .content {
+    width: 100vw;
+  }
+}
 
 .scores-header {
   margin: 40px;
@@ -19,19 +24,16 @@
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
-}
-
-#scores td, #scores th {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: center;
-}
-
-#scores tr:nth-child(even){background-color: #f2f2f2;}
-
-#scores th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  background-color: #af4f4c;
-  color: white;
+  td,th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  tr:nth-child(even){background-color: #f2f2f2;}
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #af4f4c;
+    color: white;
+  }
 }
