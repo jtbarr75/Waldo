@@ -2,6 +2,7 @@ const timer = ( function() {
   let running = true;
   const start = new Date().getTime();
 
+  // Sets up the timer to change every second
   let timerInterval = setInterval(function() {
     const now = new Date().getTime();
     const distance = now - start;
@@ -18,6 +19,7 @@ const timer = ( function() {
     running = false;
   }
 
+  // Formats time in milliseconds to mm:ss
   function formatTime(time) {
     const minutes = Math.floor(time / (1000 * 60));
     const seconds = Math.floor((time % (1000 * 60)) / 1000);
@@ -30,6 +32,7 @@ const timer = ( function() {
   }
 })();
 
+// Submits the time it took the user to complete the puzzle
 function submitScore() {
   event.preventDefault();
   const time = document.getElementById("timer").dataset.time;
