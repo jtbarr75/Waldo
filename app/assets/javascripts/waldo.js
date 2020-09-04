@@ -2,17 +2,20 @@
   let foundChars = 0;
   let win = false;
   let puzzle;
-  fetch(`${window.location.pathname}.json`)
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error("Network response not ok");
-      })
-      .then((data) => { puzzle = data });
-
 
   document.onclick = selectBox;
+  getPuzzleInfo();
+
+  function getPuzzleInfo() {
+    fetch(`${window.location.pathname}.json`)
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error("Network response not ok");
+    })
+    .then((data) => { puzzle = data });
+  }
 
   function selectBox(e) {
     if (e.target.tagName !== "LI") {
@@ -101,22 +104,13 @@
   function createSelector(x, y){
     let container = selectContainer(x, y);
     container.id = "select";
-
     let selectChar = document.createElement("ul");
-    let waldo = characterSelector("Waldo", 1);
-    let wizard = characterSelector("Wizard", 2);
-    let wenda = characterSelector("Wenda", 3);
-    let odlaw = characterSelector("Odlaw", 4);
-    let woof = characterSelector("Woof", 5);
-
-    selectChar.appendChild(waldo);
-    selectChar.appendChild(wizard);
-    selectChar.appendChild(wenda);
-    selectChar.appendChild(odlaw);
-    selectChar.appendChild(woof);
+    puzzle.characters.forEach(character => {
+      let char = characterSelector(character.name, character.id);
+      selectChar.appendChild(char);
+    })
 
     container.appendChild(selectChar);
-
     document.querySelector(".image-wrapper").appendChild(container);
   }
 })();

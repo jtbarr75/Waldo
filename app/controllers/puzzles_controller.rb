@@ -11,6 +11,7 @@ class PuzzlesController < ApplicationController
         body = {
           id: @puzzle.id,
           name: @puzzle.name,
+          characters: @puzzle.characters,
           numCharacters: @puzzle.num_characters
         }
         render json: body

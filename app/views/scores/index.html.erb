@@ -4,10 +4,14 @@
     <%= link_to 'Back to Home', root_path , class: "link" %>
   </header>
   <table id='scores'>
+    <% if @scores.length > 0 %>
     <tr>
       <th>Name</td>
       <th>Time</td>
     </tr>
     <%= render @scores %>
+    <% else %>
+      <tr><th>No Scores Yet...</th></tr>
+    <% end %>
   </table>
 </div>
