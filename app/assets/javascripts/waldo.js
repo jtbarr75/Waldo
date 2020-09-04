@@ -47,6 +47,7 @@
     win = true;
     const time = document.getElementById("timer").dataset.time;
     document.getElementById("win-message").innerText = `You won in ${timer.formatTime(time)}`
+    document.querySelector("form button").disabled = false;
     document.getElementById("win-popup").style.display = "block";
   }
 
